@@ -1,0 +1,32 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "Sample",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "empty"
+  },
+  "keywords": [
+    "hi"
+  ],
+  "author": "surya",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "log4js": "^1.1.1",
+    "mongo-sanitize": "^1.0.0",
+    "mongoose": "^4.10.6",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
