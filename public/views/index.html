@@ -46,6 +46,14 @@
         <div flex="10"></div>
         <div flex="40">
             <h2>Employees Table</h2>
+            <form ng-submit="searchEmployee()">
+                <div layout="row" layout-sm="column">
+                    <input type="text" flex="70" ng-model="searchName" placeholder="Search by employee name...">
+                    <!--<a href="#" flex ="10" class="button" id="searchbut">Search</a>-->
+                    <md-button class="md-raised md-primary" type="submit">Search</md-button>
+                </div>
+            </form>
+            <br>
             <table class="table">
                 <tr>
                     <th>Name
@@ -55,7 +63,7 @@
                     <th>Email
                     </th>
                     <th>Mobile
-                    </th>                    
+                    </th>
                     <th>
                         EDIT/ DELETE
                     </th>
@@ -68,10 +76,12 @@
                     <td>{{employee.email}}
                     </td>
                     <td>{{employee.mobile}}
-                    </td>                    
+                    </td>
                     <td>
                         <button ng-click="showDetails($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-pencil"></i></button>
-                        <button ng-click="removeEmployee($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-trash"></i></button>                        
+                        <!--<button ng-click="removeEmployee($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-trash"></i></button>-->
+                        <button class="btn btn-sm btn-danger" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-trash"
+                         ng-confirm-click="Are you sure to delete this record ?" confirmed-click="removeEmployee($index)"></i></button>
                     </td>
                 </tr>
             </table>
@@ -105,7 +115,7 @@
                         <md-input-container>
                             <input ng-model="mobile" type="number">
                         </md-input-container>
-                    </div>                    
+                    </div>
                     <br>
                     <div layout="row">
                         <div flex="70">
@@ -115,7 +125,7 @@
             </form>
             </div>
         </div>
-    </div>  
+    </div>
 
 </body>
 

@@ -25,12 +25,6 @@ var user = require('./routes/employee.js');
 app.use('/employee/v1', user);
 app.listen(config.ENV.PORT, config.ENV.IP);
 app.use(serveStatic(__dirname, { 'index': ['/public/views/index.html'] }))
-// app.get('*', function (req, res) {
-//     //res.sendfile('./public/views/index.html');
-
-
-//     res.sendFile('/public/views/index.html', { root: __dirname });
-// });
 
 
 module.exports = app;

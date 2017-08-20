@@ -31,3 +31,12 @@ table, th, td {
 table{
     margin-left: 1px;
 }
+
+nav {
+  height: 100px;
+  width: 100%;
+}
+li {
+  display: inline;
+  list-style: none;
+}
