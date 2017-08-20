@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="scotchTodo">
+<html ng-app="EmployeeManagement">
 
 <head>
     <!-- META -->
@@ -36,12 +36,11 @@
     <link rel="stylesheet" href="public/styles/employee.css">
 
 </head>
-<!-- SET THE CONTROLLER AND GET ALL TODOS -->
 
-<body ng-controller="MainCtrl">
+<body ng-controller="EmployeeController">
     <div class="top-header">
         <img class="header-img" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAisAAAAJDFkZmYzZjM0LTk4YzItNGNiZi05MWY0LWEzMjZmNDI1M2EzMw.png"
-            alt="dekorate">
+            alt="Acubate">
     </div>
     <div layout="row" layout-sm="column">
         <div flex="10"></div>
@@ -56,9 +55,7 @@
                     <th>Email
                     </th>
                     <th>Mobile
-                    </th>
-                    <!--<th>Date
-                </th>-->
+                    </th>                    
                     <th>
                         EDIT/ DELETE
                     </th>
@@ -71,15 +68,10 @@
                     <td>{{employee.email}}
                     </td>
                     <td>{{employee.mobile}}
-                    </td>
-                    <!--<td>{{expense.date | date : "dd-MMMM-yyyy"}}
-                </td>-->
+                    </td>                    
                     <td>
                         <button ng-click="showDetails($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-pencil"></i></button>
-                        <button ng-click="removeEmployee($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-trash"></i></button>
-                        <!--<button ng-click="Edit($index)">Edit</button>
-                        <button ng-click="Delete($index)">Delete</button>-->
-                        <!--<i class="material-icons" ng-click="removeRow($index)">&#xE872;</i>-->
+                        <button ng-click="removeEmployee($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-trash"></i></button>                        
                     </td>
                 </tr>
             </table>
@@ -113,12 +105,7 @@
                         <md-input-container>
                             <input ng-model="mobile" type="number">
                         </md-input-container>
-                    </div>
-
-                    <!--<div flex>
-                        <b>Date :</b>
-                        <md-datepicker ng-model="date" md-placeholder="Enter date" required></md-datepicker>
-                    </div>-->
+                    </div>                    
                     <br>
                     <div layout="row">
                         <div flex="70">
@@ -128,18 +115,7 @@
             </form>
             </div>
         </div>
-    </div>
-    <!--<div class="container">
-
-        <h2>AngularJS ng-table Pagination Example</h2>
-<table ng-table ="usersTable" class="table table-striped">
-<tr ng-repeat="user in employees">
-<td data-title="'Name'">{{user.name}}</td>
-<td data-title="'Email'">{{user.email}}</td>
-</tr>
-</table>
-
-    </div>-->
+    </div>  
 
 </body>
 

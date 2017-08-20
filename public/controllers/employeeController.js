@@ -1,6 +1,6 @@
 
 
-angular.module('scotchTodo', ['ngTable', 'ngMaterial', 'ngAnimate', 'ngRoute']).controller('MainCtrl', function ($scope, $route, $http, NgTableParams) {
+angular.module('EmployeeManagement', ['ngTable', 'ngMaterial', 'ngAnimate', 'ngRoute']).controller('EmployeeController', function ($scope, $route, $http, NgTableParams) {
     // $scope.formData = {};
 
     var self = this;
