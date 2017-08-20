@@ -61,10 +61,9 @@ module.exports = (function () {
     router.delete('/:employeeId', function (req, res) {
         Employee.remove({ "_id": sanitize(req.params.employeeId) }, function (err, doc) {
             if (err) {
-                res.status(500).json({
-                    "Message": "Error communicating with database, please try after some time, or report this issue to the admin.",
-                    "status": 'Internal server error'
-                });
+                 res.status(500).json({
+                        "Message": err.errmsg
+                    });
             } else if (doc.result.n == 0) {
                 res.status(404).json({
                     "Message": "Employee with employee id " + req.params.employeeId + " not found.",
@@ -83,14 +82,13 @@ module.exports = (function () {
     router.put('/:employeeId', function (req, res) {
         var employee = req.body;
         if (req.params.employeeId) {
-            Employee.findOneAndUpdate({ _id: sanitize(req.params.employeeId) }, employee, { upsert: true }, function (err, doc) {
+            Employee.findOneAndUpdate({ employeeId: sanitize(req.params.employeeId) }, employee, { upsert: true }, function (err, doc) {
                 if (err) {
-                    res.status(500).json({
-                        "Message": "Error communicating with database, please try after some time, or report this issue to the admin.",
-                        "status": 'internalServerError'
+                     res.status(500).json({
+                        "Message": err.errmsg
                     });
                 }
-                else if (doc.length == 0) {
+                else if (!doc) {
                     res.status(404).json({
                         "Message": "Cannot update non-existent record.Employee with id " + req.params.employeeId + " not found.",
                         "status": 'notFound'

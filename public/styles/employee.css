@@ -1,0 +1,33 @@
+.top-header {
+  background-color: #0c232c;
+  padding: 1%;
+}
+
+body{
+    margin: 0px !important;
+}
+
+.header-img{
+    width: 10%;
+}
+
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    font-family: Lato;
+    padding: 10px;
+}
+
+.border-form{
+    border: 1px solid grey;
+    border-collapse: collapse;
+    font-family: Lato;
+    padding: 0px 20px 10px 40px;
+}
+.material-icons{
+ cursor: pointer;
+}
+
+table{
+    margin-left: 1px;
+}

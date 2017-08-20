@@ -24,7 +24,8 @@
     "mongo-sanitize": "^1.0.0",
     "mongoose": "^4.10.6",
     "nodemon": "^1.11.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "serve-static": "^1.12.4"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

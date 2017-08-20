@@ -8,8 +8,7 @@ var employeeSchema = mongoose.Schema({
         unique: true
     },
     pan: {
-        type: String,
-        unique: true
+        type: String
     },
     DOB: Number
 });

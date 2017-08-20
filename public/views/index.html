@@ -1,0 +1,146 @@
+<!-- index.html -->
+<!DOCTYPE html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchTodo">
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Optimize mobile viewport -->
+
+    <title>Node/Angular Todo App</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <!-- load bootstrap -->
+
+    <!-- SPELLS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- load jquery -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.4/angular-material.js"></script>
+    <link rel="stylesheet" ; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.4/angular-material.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
+    <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/2.0.2/ng-table.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/2.0.2/ng-table.min.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>-->
+    </script>
+    <script src="public/controllers/employeeController.js"></script>
+    <link rel="stylesheet" href="public/styles/employee.css">
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+
+<body ng-controller="MainCtrl">
+    <div class="top-header">
+        <img class="header-img" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAisAAAAJDFkZmYzZjM0LTk4YzItNGNiZi05MWY0LWEzMjZmNDI1M2EzMw.png"
+            alt="dekorate">
+    </div>
+    <div layout="row" layout-sm="column">
+        <div flex="10"></div>
+        <div flex="40">
+            <h2>Employees Table</h2>
+            <table class="table">
+                <tr>
+                    <th>Name
+                    </th>
+                    <th>Employee Id
+                    </th>
+                    <th>Email
+                    </th>
+                    <th>Mobile
+                    </th>
+                    <!--<th>Date
+                </th>-->
+                    <th>
+                        EDIT/ DELETE
+                    </th>
+                </tr>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.name}}
+                    </td>
+                    <td>{{employee.employeeId}}
+                    </td>
+                    <td>{{employee.email}}
+                    </td>
+                    <td>{{employee.mobile}}
+                    </td>
+                    <!--<td>{{expense.date | date : "dd-MMMM-yyyy"}}
+                </td>-->
+                    <td>
+                        <button ng-click="showDetails($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-pencil"></i></button>
+                        <button ng-click="removeEmployee($index)" type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-trash"></i></button>
+                        <!--<button ng-click="Edit($index)">Edit</button>
+                        <button ng-click="Delete($index)">Delete</button>-->
+                        <!--<i class="material-icons" ng-click="removeRow($index)">&#xE872;</i>-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div flex="10"></div>
+        <div flex="30">
+            <h2>Add a Employee</h2>
+            <form name="employee-form" class="form-horizontal border-form" role="form" ng-submit="addEmployee()">
+                <div layout="column">
+                    <hr>
+                    <div flex>
+                        <b>Name :</b>
+                        <md-input-container>
+                            <input ng-model="name" type="string">
+                        </md-input-container>
+                    </div>
+                    <div flex>
+                        <b>Employee ID :</b>
+                        <md-input-container>
+                            <input ng-model="employeeId" type="string">
+                        </md-input-container>
+                    </div>
+                    <div flex>
+                        <b>Email :</b>
+                        <md-input-container>
+                            <input ng-model="email" type="string">
+                        </md-input-container>
+                    </div>
+                    <div flex>
+                        <b>Mobile :</b>
+                        <md-input-container>
+                            <input ng-model="mobile" type="number">
+                        </md-input-container>
+                    </div>
+
+                    <!--<div flex>
+                        <b>Date :</b>
+                        <md-datepicker ng-model="date" md-placeholder="Enter date" required></md-datepicker>
+                    </div>-->
+                    <br>
+                    <div layout="row">
+                        <div flex="70">
+                        </div>
+                        <md-button class="md-raised md-primary" type="submit" ng-value="submit">{{text}}</md-button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <!--<div class="container">
+
+        <h2>AngularJS ng-table Pagination Example</h2>
+<table ng-table ="usersTable" class="table table-striped">
+<tr ng-repeat="user in employees">
+<td data-title="'Name'">{{user.name}}</td>
+<td data-title="'Email'">{{user.email}}</td>
+</tr>
+</table>
+
+    </div>-->
+
+</body>
+
+</html>

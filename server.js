@@ -7,22 +7,30 @@ var logger = require('./logger');
 var User = require('./models/model_employee.js');
 
 
-mongoose.connect(config.MONGO.CONNECT_URL,function(err){
-    if(err)
+mongoose.connect(config.MONGO.CONNECT_URL, function (err) {
+    if (err)
         console.log(err);
-    else{
-        var loggerInfo = logger.getLogger(); 
+    else {
+        var loggerInfo = logger.getLogger();
         loggerInfo.info("Conected to DB");
         console.log("connected to mongo");
     }
 });
 
-
+var serveStatic = require('serve-static');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 var user = require('./routes/employee.js');
 
 app.use('/employee/v1', user);
+app.listen(config.ENV.PORT, config.ENV.IP);
+app.use(serveStatic(__dirname, { 'index': ['/public/views/index.html'] }))
+// app.get('*', function (req, res) {
+//     //res.sendfile('./public/views/index.html');
 
-app.listen(config.ENV.PORT,config.ENV.IP);
+
+//     res.sendFile('/public/views/index.html', { root: __dirname });
+// });
+
+
 module.exports = app;
